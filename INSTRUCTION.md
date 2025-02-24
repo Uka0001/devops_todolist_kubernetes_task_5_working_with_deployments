@@ -11,15 +11,16 @@ kubectl apply -f hpa.yml
 ```
 
 ## choice of resource requests and limits
-The resource requests and limits are set to 0.5 CPU and 500Mi memory. This is because the 
-app is a simple to-do list app that does not require much resources to run. The app is 
+The resource requests and limits are set to 5m CPU and 10Mi memory. This is because the 
+app is a simple to-do list app that does not require many resources to run. The app is 
 also not expected to have a lot of traffic, so the resource requests and limits are set to 
-a minimum to save resources and be able to test deployment and hpa configs.
+a minimum to save resources and be able to test deployment and hpa configs with additional
+loads.
 
 ## choice of HPA configuration
-The HPA configuration is set to a minimum of 2 pods and a maximum of 5 pods. This is because 
-the app is a simple to-do list app that does not require many resources to run. The app is also 
-not expected to have a lot of traffic, so the HPA configuration is set to a minimum to save resources.
+The HPA configuration is set to a minimum of 2 pods and a maximum of 5 pods. Metrics are
+set to CPU utilization of 70% and memory utilization and memory utilization of 70%. The
+metrics are set to 70% because it is the normal working load for the app.
 
 ## strategy configuration (Why such numbers)
 The strategy configuration is set to RollingUpdate because it is the most common strategy 
