@@ -24,9 +24,10 @@ metrics are set to 70% because it is the normal working load for the app.
 
 ## strategy configuration (Why such numbers)
 The strategy configuration is set to RollingUpdate because it is the most common strategy 
-used in production environments. The strategy is set to 2 pods because the app is a simple 
-to-do list app that does not require many resources to run. The app is also not expected to 
-have a lot of traffic, so the strategy configuration is set to a minimum to save resources.
+used in production environments. The strategy is set to minimum 2 pods and maximum 5 pods.
+The strategy is set to 2 pods because it is the minimum number of pods required to run the
+app. The strategy is set to 5 pods because it is the maximum number of pods that can be
+scaled up to handle additional loads.
 
 ## how to access the app after deployment
 The app can be accessed by running the following command:
